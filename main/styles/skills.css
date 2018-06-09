@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    text-align: center;
+    background-color: black;
+}
+
+ a {
+    text-decoration: none;
+}
+
+#wrapper_new {
+    width: 100%;
+    height: 729px;
+    float: right;
+}
+
+#wrapper_new #poop {
+    font-size: 1.8em;
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#wrapper_new #back {
+    font-size: 1.8em;
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#the_great_attractor {
+    margin: 100px auto;
+    width: 400px;
+    height: 300px;
+    border: 4px solid floralwhite;
+    border-radius: 10px;
+    background-color: black;
+}
+
+#the_great_attractor .new_skl_elem {
+    margin-top: 10%;
+    background-color: black;
+}
+
+.add_btn {
+    width: 120px;
+    height: 45px;
+    border: 2px solid white;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    font-weight: 700;
+    font-size: 1.2em;
+    color: white;
+}
+
+.add_btn:focus {
+    outline: none;
+}
+
+.add_input {
+    height: 50px;
+    width: 300px;
+    border: 2px solid white;
+    border-radius: 3px;
+    font-size: 1.2em;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #8E8E8E;
+}
+input::-webkit-input-placeholder {
+    color: #4f5150;
+}
+
+#information {
+    opacity: 0;
+    width: 400px;
+    height: 30px;
+    color: white;
+    font-size: 1.3em;
+    font-family: 'Ubuntu', sans-serif;
+}
+

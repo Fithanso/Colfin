@@ -1,0 +1,159 @@
+* {
+    box-sizing: border-box;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    margin: 0;
+    background-color: black;
+}
+
+a {
+    text-decoration: none;
+}
+
+.transition {
+    transition: 0.5s;
+}
+
+#aside{
+    height: 729px;
+    width: 15%;
+    float: left;
+    background-color: black;
+    border-right: 1px solid #ffffff;
+    box-sizing: border-box;
+    box-shadow: inset -1px 0px 2px 0px rgba(211, 211, 211, 0.75);
+}
+
+.aside_titles {
+    margin: 10% auto;
+    color: white;
+    height: 80px;
+    width: 150px;
+    line-height: 35px;/*выравнивание надписи по вертикали*/
+    border-bottom: 2px solid white;
+}
+
+.aside_titles:hover {
+    cursor: default;
+}
+
+#first {
+    /*background-color: #57110a;*/
+}
+
+#second {
+    /*background-color: #57531c;*/
+}
+
+.titles {
+    display: inline-block;
+    letter-spacing: 5px;
+    font-size: 1.2em;
+    font-family: 'Prompt', sans-serif;
+}
+
+#skills {
+    width:85%;
+    height: 729px;
+    float: right;
+    background-color: black;
+    display: none;
+}
+
+.info {
+    margin: 50px auto;
+    width: 450px;
+    height: 100px;
+    text-align: center;
+}
+
+.info h1 {
+    letter-spacing: 1px;
+    color: white;
+    font-family: 'Prompt', sans-serif;
+}
+
+#add_smth {
+    float: right;
+    margin-top: -150px;
+    margin-right: 30px;
+    width: 130px;
+    height: 50px;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    background-color: black;
+    border-bottom-right-radius: 7px;
+    box-sizing: border-box;
+    text-align: center;
+    padding-top: 0.6%;
+}
+
+#add_smth a {
+    font-family: 'Prompt', sans-serif;
+    font-size: 1.4em;
+    color: #8E8E8E;
+
+}
+
+#add_smth a:hover {
+    color: white;
+    transition: 1s;
+}
+
+/*Стили для области отображения навыков*/
+
+#kill_zone {
+    width: 85%;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: auto;
+    margin-top: 50px;
+}
+
+.skill_block {
+    width: 216px;
+    height: 120px;
+    border-left: 3px solid white;
+    border-top: 3px solid white;
+    border-top-left-radius: 5px;
+    background-color: black;
+    text-align: center;
+    box-sizing: border-box;
+    float: left;
+    margin-left: 90px;
+    margin-top: 30px;
+}
+
+.skill_block:hover {
+    box-sizing: border-box;
+    border: 2px solid white;
+}
+
+.skill_block h2 {
+    font-weight: normal;
+    font-size: 2em;
+    font-family: 'Prompt', sans-serif;
+    color: whitesmoke;
+    margin-top: 18%;
+
+}
+
+/*Стили для задач*/
+#goals {
+    width:85%;
+    height: 729px;
+    float: right;
+    background-color: black;
+    display: none;
+
+
+}
+
+
+

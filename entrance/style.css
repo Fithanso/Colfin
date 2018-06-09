@@ -1,0 +1,71 @@
+body{
+    background-color: #2a5153;
+}
+
+#login {
+    width: 350px;
+    height: 500px;
+    float: left;
+    margin-left: 300px;
+}
+
+#register {
+    width: 350px;
+    height: 500px;
+    float: right;
+    margin-right: 300px;
+}
+
+.proto{
+    margin-top: 90px;
+    background-color: #368798;
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+
+.forms {
+    width: 200px;
+    margin-left: 70px;
+}
+
+input {
+    -webkit-box-shadow: 3px 3px 9px 0px rgba(50, 50, 50, 0.73);
+    -moz-box-shadow:    3px 3px 9px 0px rgba(50, 50, 50, 0.73);
+    box-shadow:         3px 3px 9px 0px rgba(50, 50, 50, 0.73);
+    margin-top: 40px;
+    border: 1px solid #0B173C;
+    border-radius: 5px;
+    height: 20px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.1em;
+}
+
+.buttons {
+    height: 40px;
+    width: 100px;
+    text-shadow: 2px 2px 2px rgba(150, 150, 145, 0.71);
+}
+
+h2 {
+    font-family: 'Ubuntu', sans-serif;
+    text-shadow: 2px 1px 2px rgba(150, 150, 150, 1);
+}
+
+#under {
+    color: #ffbf30;
+    margin-top: 30px;
+    height: 40px;
+    width: 200px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.3em;
+}
+
+#under_2 {
+    color: #ffbf30;
+    margin-top: 30px;
+    height: 40px;
+    width: 200px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.3em;
+}

@@ -1,0 +1,102 @@
+.list input {
+    display: block;
+    box-sizing: border-box;
+    border: 1px solid ghostwhite;
+    border-radius: 5px;
+    background-color: black;
+}
+
+.list .input {
+    box-sizing: border-box;
+    border: 1px solid ghostwhite;
+    color: #8896FF;
+    font-size: 1.2em;
+}
+/*List*/
+
+.list {
+    background-color: transparent;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #2B2C2D;
+    border-radius: 5px;
+}
+
+.list p {
+    font-family: "Prompt",sans-serif;
+    color: #AAAAAB;
+    font-size: 1.1em;
+}
+
+/*Items*/
+
+.items {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.done_button:hover {/*Стилизация done-button при наведении на items li*/
+    opacity: 1;
+
+}
+
+.items .item.done {/*классы item и done не вложены друг в друга, стоят на одном уровне-> между классами не нужен пробел*/
+    text-decoration: line-through;
+}
+
+.items li, .item-add .input {
+    padding: 10px;
+    color: #a7a6a9;
+    font-family: "Prompt",sans-serif;
+}
+
+.input {
+    width: 100%;
+}
+
+.input:focus {
+    outline: none;
+}
+
+/*Done button*/
+.done_button {
+    display: inline-block;/*теперь можем стилизовать как блок*/
+    font-size: 0.8em;
+    background-color: #d9dfe1;
+    color: #363639;
+    padding: 3px 6px;
+    border: 0;
+    opacity: 0.4;
+}
+
+/*Submit button*/
+
+.submit {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    color: ghostwhite;
+    background-color: #fff;
+    padding: 5px 10px;
+    border: 1px solid rgba(26,50,52,0.92);
+    width: 100%;
+    margin-top: 10px;
+}
+
+.del_button {
+    display: inline-block;
+    font-size: 0.8em;
+    background-color: #852c2c;
+    color: #c5c4bd;
+    padding: 3px 6px;
+    border: 0;
+    opacity: 0.4;
+}
+
+.del_button:hover {
+    opacity: 1;
+}
