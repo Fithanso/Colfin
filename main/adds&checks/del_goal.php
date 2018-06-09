@@ -8,7 +8,7 @@ if(isset($_GET['as'], $_GET['item'])) {
     switch ($as) {
         case "delete":
 
-            $doneQuery = $db->prepare ("DELETE FROM goals WHERE goals.name = :item");
+            $doneQuery = $db->prepare ("DELETE FROM goals WHERE id = :item");
 
             $doneQuery->execute([
                 'item' => $item
