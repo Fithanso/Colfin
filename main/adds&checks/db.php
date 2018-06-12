@@ -6,6 +6,7 @@ R::setup('mysql:host=localhost;dbname=General_project','root', '' );
 
 //$_SESSION['user_id'] = 1;
 
+global $db;
 $db = new PDO('mysql:dbname=General_project;host=localhost', 'root','');
 
 /*if (!isset($_COOKIE['user_id'])) {
