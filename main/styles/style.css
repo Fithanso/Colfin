@@ -24,17 +24,30 @@ a {
     height: 729px;
     width: 15%;
     float: left;
+    text-align: center;
     background-color: black;
     border-right: 1px solid #ffffff;
     box-sizing: border-box;
     box-shadow: inset -1px 0px 2px 0px rgba(211, 211, 211, 0.75);
 }
 
+.img {
+    margin-top: 10px;
+    width: 100%;
+    height: auto;
+}
+
+.img img {
+    width: 40%;
+    height: auto;
+    transform: rotate(30deg);
+}
+
 .aside_titles {
     margin: 10% auto;
     color: white;
     height: 80px;
-    width: 150px;
+    width: 60%;
     line-height: 35px;/*выравнивание надписи по вертикали*/
     border-bottom: 2px solid white;
 }
@@ -44,11 +57,11 @@ a {
 }
 
 #first {
-    /*background-color: #57110a;*/
+
 }
 
 #second {
-    /*background-color: #57531c;*/
+
 }
 
 .titles {

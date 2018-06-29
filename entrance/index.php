@@ -34,7 +34,7 @@ require_once "check_log.php";
                          if(data == '<p id="errors" style="color: red">Invalid login</p>' || data == '<p id="errors" style="color: red">Invalid password</p>' || data == '<p id="errors" style="color: red">Check your password</p>' || data == '<p id="errors" style="color: red">Check your login</p>')
                              $("#under").html(data);
                          else
-                             document.location.href = 'http://testing/index.php';
+                             document.location.href = 'http://trainer/index.php';
                      }
                  });
              });

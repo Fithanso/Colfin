@@ -17,9 +17,9 @@ $errors = [];
         if ($user) {
             if (password_verify($data['password_log'], $user->password)) {
                 //всё хорошо, логиним пользователя
-                $name_define = $data['login_log'];
+               /* $name_define = $data['login_log']; хз зачем я это писал
                 echo 'login';
-                /*$info_id = $mysqli->query("SELECT `id` FROM `users` WHERE `name` = $info_id");
+                $info_id = $mysqli->query("SELECT `id` FROM `users` WHERE `name` = $info_id");
                 $_SESSION['user_id'] = $info_id;
                 exit();*/
             } else {

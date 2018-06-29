@@ -14,6 +14,7 @@
             $('#back').hide();
 
             $(".add_btn").bind("click", function () {
+
                 $("#information").css("opacity", "100");
 
                 $.ajax ({
@@ -25,27 +26,25 @@
                         $("#information").text("Wait a second...");
                     },
                     success: function(data) {
-                        if(data == "You already know it") {
-                            $("#information").text(data);
-                        } else if(data == "Are you kidding?") {
-                            $("#information").text(data);
-                        } else if(data == "Attaboy! New skill added") {
-                            $("#information").text(data);
+                        if(data == "already") {
+                            $("#information").text("You already know it");
+                        } else if(data == "missing") {
+                            $("#information").text("Enter skill");
+                        } else if(data == "added") {
+                            $("#information").text("Attaboy! New skill added");
                             $('#back').show(200);
                             $('#poop').hide();
+                           }
                         }
-                    }
+                    });
                 });
             });
-        });
     </script>
 
 
 
 </head>
 <body>
-<div id="aside">
-</div>
 
 <div id="wrapper_new">
  <div id="the_great_attractor">

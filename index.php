@@ -15,7 +15,7 @@ $items = $itemsQuery->rowCount() ? $itemsQuery : [];//если rowcount выда
 <!DOCTYPE html>
 <html>
 <head>
-    <title>SERENitY</title>
+    <title>IVY</title>
     <link rel="stylesheet" href="main/styles/style.css">
     <link rel="stylesheet" href="main/styles/goals.css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -62,6 +62,7 @@ $items = $itemsQuery->rowCount() ? $itemsQuery : [];//если rowcount выда
 </head>
 <body>
 <div id="aside">
+    <div class="img"> <img src="main/img/ivy.svg"> </div>
     <div id="first" class="aside_titles">
         <div class="titles" id="toggle_skill"><h2>Skills</h2></div>
     </div>
@@ -87,7 +88,7 @@ $items = $itemsQuery->rowCount() ? $itemsQuery : [];//если rowcount выда
         for ($i = 0; $i < count($blocks); $i++) {
             $href_s = $blocks[$i]['name'];
             $block_info_s = strtoupper($blocks[$i]["name"]);
-            echo '<a href="'."main/files/".$href_s.".php?skill=".$href_s."".'">
+            echo'<a href=main/templates/template.php?skill='.$href_s.'>
                <div class="skill_block">
                <h2>'.$block_info_s.'</h2>
                </div>
@@ -122,7 +123,7 @@ $items = $itemsQuery->rowCount() ? $itemsQuery : [];//если rowcount выда
         <?php endif; ?>
 
         <form class="item-add" action="main/adds&checks/add_goal.php" method="post">
-            <input type="text" name="name" placeholder="Type a new item here." class="input" autocomplete="off" required>
+            <input type="text" name="name" placeholder="Type a new goal here." class="input" autocomplete="off" required>
             <input type="submit" value="Add" class="submit">
         </form>
 
