@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+}
+
+a {
+    text-decoration: none;
+}
+
+#the_great_attractor {
+    width: 90%;
+    height: 550px;/*auto*/
+    margin: 30px auto;
+    text-align: center;
+}
+
+#back {
+    position: absolute;
+    float: left;
+    margin-left: 20px;
+    font-family: 'Prompt', sans-serif;
+    font-size: 1.4em;
+
+}
+
+.add_input {
+    width: 60%;
+    height: 400px;
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 5px;
+    margin-top: 30px;
+    padding: 30px;
+    outline: none;
+    letter-spacing: 1px;
+    font-family: 'Prompt', sans-serif;
+    font-size: 1em;
+    resize: vertical;
+}
+
+.add_btn {
+    width: 130px;
+    height: 45px;
+    margin-top: 30px;
+    background-color: black;
+    border: 2px solid white;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    font-weight: 700;
+    font-size: 1.2em;
+    color: white;
+    outline: none;
+}
