@@ -37,26 +37,6 @@ $items = $itemsQuery->rowCount() ? $itemsQuery : [];//если rowcount выда
                $('#goals').toggle(400);
            });
 
-               $('body').on('click', '.delete', function() {
-                   $(this).closest('.goal').remove();
-                   var parent = $(this).parent();
-                   var h4 = $(parent).children(".h4");
-                   $.ajax ({
-                       url: "delete_goal.php",
-                       type: "POST",
-                       data: ({name: $(h4).text()}),
-                       dataType: "html",
-                       success: function (data) {
-                           if(data == "true") {
-                               alert("true")
-                           }else if(data == "false") {
-                               alert("fail");
-                           }
-
-                       }
-                   });
-
-               });
        });
     </script>
 </head>

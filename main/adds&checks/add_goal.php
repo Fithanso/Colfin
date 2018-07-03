@@ -1,7 +1,7 @@
 <?php
 require_once "db.php";
 
-if(isset($_POST['name'])) {//Проверка, почти что не нужна
+if(isset($_POST['name'])) {//Проверка, чтобы операция не выполнилась если на страницу перешли неправильно
   $name = trim($_POST['name']);
 
   if (!empty($name)) {

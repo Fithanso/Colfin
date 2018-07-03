@@ -7,8 +7,11 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:700i|Song+Myung" rel="stylesheet">
     <?php
     require "db.php";
+    require_once "../functions/functions.php";
     $theme = $_GET['theme'];
     $skill = $_GET['skill'];
+
+    $theme_query = getOneTheme($theme, $skill);
     ?>
     <script>
 
@@ -36,7 +39,7 @@
     <div id="the_great_attractor">
 
         <form method="post" name="skill_form">
-            <textarea class="add_input new_skl_elem" name="theme_text" placeholder="Just describe something"></textarea><br>
+            <textarea class="add_input new_skl_elem" name="theme_text" placeholder="Just describe something"><?php $theme_query[1]['article']?></textarea><br>
             <input type="button" class="add_btn new_skl_elem" name="add_text_btn" value="CHANGE">
         </form>
 

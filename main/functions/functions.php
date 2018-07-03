@@ -46,5 +46,4 @@ function getOneTheme ($name, $language) {
     $result = $mysqli->query("SELECT * FROM themes WHERE name = '$name' AND language = '$language'");
     closeDB();
     return resultToArray($result);
-
 }

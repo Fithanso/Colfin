@@ -17,6 +17,24 @@ require_once "../adds&checks/db.php";
     $get_skill = $_GET['skill'];
     $theme_info = getOneTheme($logo_s, $get_skill);
     ;?>
+    <script>
+
+        $(document).ready(function () {
+
+            $("#note_submit").bind("click", function () {
+                $.ajax ({
+                    url: "add_theme_note.php",
+                    type: "POST",
+                    data: ({theme: "<?php echo $logo_s?>", skill: "<?php echo $get_skill?>", name: $("#note_input").val()}),
+                    dataType: "html",
+                    success: function() {
+                        alert("success");
+                    };
+                });
+            });
+        });
+
+    </script>
 
 </head>
 <body>
@@ -28,7 +46,7 @@ require_once "../adds&checks/db.php";
         <div class="creation_date head">
             <?php
             for($i = 0; $i < count($theme_info); $i++) {
-                $date = $theme_info[$i]['created'];////////////////сделать дату
+                $date = $theme_info[$i]['created'];
                 echo '<p>Created: '.$date.'</p>';//echo '<p>Created: '.$theme_date.'</p>';-при таком раскладе, выборке только created и без resulttoarray на странице всё пропадает почему?
             }
             ?>
@@ -52,7 +70,10 @@ require_once "../adds&checks/db.php";
             </div>
 
             <div id="notes">
-                <p>Here is the note</p>
+                <form class="note-add" method="post">
+                    <input type="text" name="name" placeholder="Enter text" id="note_input" autocomplete="off" required>
+                    <input type="submit" value="Add" id="note_submit">
+                </form>
             </div>
         </div>
 
