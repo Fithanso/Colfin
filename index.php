@@ -15,7 +15,7 @@ $items = $itemsQuery->rowCount() ? $itemsQuery : [];//если rowcount выда
 <!DOCTYPE html>
 <html>
 <head>
-    <title>IVY</title>
+    <title>SATUR.N</title>
     <link rel="stylesheet" href="main/styles/style.css">
     <link rel="stylesheet" href="main/styles/goals.css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>

@@ -23,13 +23,17 @@ require_once "../adds&checks/db.php";
 
             $("#note_submit").bind("click", function () {
                 $.ajax ({
-                    url: "add_theme_note.php",
+                    url: "../adds&checks/themes/add_theme_note.php",
                     type: "POST",
                     data: ({theme: "<?php echo $logo_s?>", skill: "<?php echo $get_skill?>", name: $("#note_input").val()}),
-                    dataType: "html",
+                    dataType: "text",
                     success: function() {
                         alert("success");
-                    };
+                    },
+                    error: function (e) {
+                        debugger;/*простой дебаггер для остановки*/
+
+                    }
                 });
             });
         });
@@ -72,7 +76,7 @@ require_once "../adds&checks/db.php";
             <div id="notes">
                 <form class="note-add" method="post">
                     <input type="text" name="name" placeholder="Enter text" id="note_input" autocomplete="off" required>
-                    <input type="submit" value="Add" id="note_submit">
+                    <input type="button" value="Add" id="note_submit">
                 </form>
             </div>
         </div>
