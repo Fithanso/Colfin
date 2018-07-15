@@ -39,7 +39,7 @@
     <div id="the_great_attractor">
 
         <form method="post" name="skill_form">
-            <textarea class="add_input new_skl_elem" name="theme_text" placeholder="Just describe something"><?php $theme_query[1]['article']?></textarea><br>
+            <textarea class="add_input new_skl_elem" name="theme_text" placeholder="Just describe something"><?php $theme_query['article']?></textarea><br>
             <input type="button" class="add_btn new_skl_elem" name="add_text_btn" value="CHANGE">
         </form>
 

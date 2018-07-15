@@ -2,7 +2,8 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    /*display: block*/
+    text-decoration: none;
+
 }
 
 body {
@@ -24,11 +25,9 @@ p {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    /*justify-content: space-between; не нужно*/
     flex-direction: row;
     align-items: center;
     background-color: black;
-    /*background-color: #060606;*/
 }
 
 
@@ -98,10 +97,6 @@ p {
     text-align: center;
     color: white;
     font-family: 'Prompt', sans-serif;
-}
-
-#aside a {
-    text-decoration-color: white;
 }
 
 #aside h2 {

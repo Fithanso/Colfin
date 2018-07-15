@@ -43,12 +43,19 @@ a {
     transform: rotate(30deg);
 }
 
+.img_s {
+    width: 60%;
+    height: auto;
+}
+
 .aside_titles {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 10% auto;
     color: white;
-    height: 80px;
-    width: 60%;
-    line-height: 35px;/*выравнивание надписи по вертикали*/
+    height: 60px;
+    width: 70%;
     border-bottom: 2px solid white;
 }
 
@@ -56,18 +63,10 @@ a {
     cursor: default;
 }
 
-#first {
-
-}
-
-#second {
-
-}
-
 .titles {
     display: inline-block;
     letter-spacing: 5px;
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-family: 'Prompt', sans-serif;
 }
 

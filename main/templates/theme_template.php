@@ -1,4 +1,5 @@
 <?php
+//header("Status: 404 Not Found");
 require_once "../functions/functions.php";
 require_once "../adds&checks/db.php";
 ?>
@@ -9,6 +10,9 @@ require_once "../adds&checks/db.php";
     <meta charset="utf-8">
     <link rel="stylesheet" href="skill_page.css">
     <link rel="stylesheet" href="additional.css">
+    <link rel="stylesheet" href="../styles/goals.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,700&amp;subset=cyrillic-ext" rel="stylesheet">
+
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <?php
@@ -16,6 +20,21 @@ require_once "../adds&checks/db.php";
     $logo_s = $_GET['theme'];
     $get_skill = $_GET['skill'];
     $theme_info = getOneTheme($logo_s, $get_skill);
+    $notesQuery = $db->prepare("
+    SELECT id, name
+    FROM theme_notes
+    WHERE user = :user AND theme = :theme AND language = :language
+    ORDER BY id DESC
+    ");
+
+    $notesQuery->execute([
+        'user' => 1,
+        'theme' => $logo_s,
+        'language' => $get_skill
+
+    ]);
+
+    $notes = $notesQuery->rowCount() ? $notesQuery : [];
     ;?>
     <script>
 
@@ -28,7 +47,7 @@ require_once "../adds&checks/db.php";
                     data: ({theme: "<?php echo $logo_s?>", skill: "<?php echo $get_skill?>", name: $("#note_input").val()}),
                     dataType: "text",
                     success: function() {
-                        alert("success");
+                        //alert("success");
                     },
                     error: function (e) {
                         debugger;/*простой дебаггер для остановки*/
@@ -69,11 +88,23 @@ require_once "../adds&checks/db.php";
                     Nullam sit amet cursus felis, et bibendum urna. Curabitur interdum libero quis mi luctus, bibendum luctus odio ultrices. Fusce venenatis est ut elit posuere maximus. Duis aliquam porttitor placerat. Aliquam porta aliquet malesuada. Cras et risus at purus iaculis tincidunt id quis erat. Aenean ut nibh volutpat massa placerat fringilla quis sed quam. Duis nisl nunc, luctus quis iaculis eget, venenatis in turpis. Pellentesque vitae sapien nisl. Nullam ac lacus eget dui fermentum suscipit.<br>
                 </p>
 
+                <div id="add-del">
                 <a href="../adds&checks/change_article.php?theme=<?php echo $logo_s?>&skill=<?php echo $get_skill?>"><div id="add_change_article"><p>Add or change article</p> <img src="../img/arrow-right.svg"></div></a>
-
+                <a href="../adds&checks/themes/del_theme.php?theme=<?php echo $logo_s?>&skill=<?php echo $get_skill?>&as=delete"><div id="del_theme"><p>Delete theme</p></div></a>
+                </div>
             </div>
 
             <div id="notes">
+                <?php if(!empty($notes)):?>
+                    <ul class="items">
+                    <?php foreach ($notes as $note):?>
+                        <li>
+                            <div class="item"><?php echo $note['name']?></div>
+                            <a href="../adds&checks/del_note.php?as=delete&note=<?php echo $note['id']?>" class="del_button">Delete</a>
+                        </li>
+                    <?php endforeach; ?>
+                    </ul>
+                <?php endif; ?>
                 <form class="note-add" method="post">
                     <input type="text" name="name" placeholder="Enter text" id="note_input" autocomplete="off" required>
                     <input type="button" value="Add" id="note_submit">

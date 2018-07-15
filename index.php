@@ -22,7 +22,7 @@ $items = $itemsQuery->rowCount() ? $itemsQuery : [];//если rowcount выда
     <link href="https://fonts.googleapis.com/css?family=Lato:700i|Song+Myung" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Courgette|Monoton|Pathway+Gothic+One|Prompt" rel="stylesheet">
     <?php
-    $blocks = getBlocks();//по сути нам на главной странице оба аргумента не нужны, написано чтобы не было ошибки, сделано для того, чтобы передавать
+    $blocks = getBlocks();
     ?>
     <script>
        $(document).ready(function () {
@@ -42,11 +42,13 @@ $items = $itemsQuery->rowCount() ? $itemsQuery : [];//если rowcount выда
 </head>
 <body>
 <div id="aside">
-    <div class="img"> <img src="main/img/ivy.svg"> </div>
+    <div class="img"> <img src="main/img/ivy.svg"> </div><!--Внимание!!!!! надо в род. блоке aside titles сделать его flex и разместить два дива один первый с картинкой после него сам титл-->
     <div id="first" class="aside_titles">
+        <div class="titles_img"><img class="img_s" src="main/img/skills_img.svg"></div>
         <div class="titles" id="toggle_skill"><h2>Skills</h2></div>
     </div>
     <div id="second" class="aside_titles">
+        <div class="titles_img"><img class="img_s" src="main/img/goals_img.svg"></div>
         <div class="titles" id="toggle_goal"><h2>Goals</h2></div>
     </div>
     <div id="second" class="aside_titles">
