@@ -1,7 +1,7 @@
 <?php
-require_once "db.php";
+require_once "../../db.php";
 
-if(isset($_POST['name'])) {//Проверка, чтобы операция не выполнилась если на страницу перешли неправильно
+if(isset($_POST['name'])) {
   $name = trim($_POST['name']);
 
   if (!empty($name)) {
@@ -12,10 +12,10 @@ if(isset($_POST['name'])) {//Проверка, чтобы операция не 
 
       $addedQuery->execute([
           'name' => $_POST['name'],
-          'user' => 1
+          'user' => $_SESSION['logged_user']->id
       ]);
   }
 
 }
 
-header("Location: /index.php");
+header("Location: ../index.php");

@@ -1,71 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
 body{
-    background-color: #2a5153;
+    background-color: black;
 }
 
-#login {
+#login_div {
+    height: 300px;
+}
+
+#wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.back_button {
+    width: 180px;
+    height: 70px;
+    margin-bottom: 3%;
+    margin-left: 3%;
+    display: flex;
+    justify-content: center;/*что за уголок?*/
+    align-items: center;
+    align-self: flex-end;
+    background-color: #32312e;
+    color: white;
+    border: 3px solid grey;
+    border-radius: 4px;
+    font-family: 'Prompt', sans-serif;
+
+
+}
+
+.proto {
     width: 350px;
     height: 500px;
-    float: left;
-    margin-left: 300px;
-}
-
-#register {
-    width: 350px;
-    height: 500px;
-    float: right;
-    margin-right: 300px;
-}
-
-.proto{
-    margin-top: 90px;
-    background-color: #368798;
+    margin-left: 17%;
+    padding-top: 4%;
+    background-color: #0e0e0e;
     text-align: center;
-    border: 1px solid transparent;
+    border: 1px solid white;
     border-radius: 5px;
-}
-
-.forms {
-    width: 200px;
-    margin-left: 70px;
+    align-self: center;
 }
 
 input {
-    -webkit-box-shadow: 3px 3px 9px 0px rgba(50, 50, 50, 0.73);
-    -moz-box-shadow:    3px 3px 9px 0px rgba(50, 50, 50, 0.73);
-    box-shadow:         3px 3px 9px 0px rgba(50, 50, 50, 0.73);
+    height: 25px;
     margin-top: 40px;
     border: 1px solid #0B173C;
     border-radius: 5px;
-    height: 20px;
     font-family: 'Ubuntu', sans-serif;
     font-size: 1.1em;
+}
+
+#name, #login_reg, #email_reg, #password_reg, #password_reg_2 {
+    padding-left: 10px;
+
 }
 
 .buttons {
     height: 40px;
     width: 100px;
-    text-shadow: 2px 2px 2px rgba(150, 150, 145, 0.71);
+}
+ h2 {
+    color: #8E8E8E;
+    font-family: 'Helvetica', sans-serif;
 }
 
-h2 {
-    font-family: 'Ubuntu', sans-serif;
-    text-shadow: 2px 1px 2px rgba(150, 150, 150, 1);
-}
+ #errors {
+     color: white;
+     width: 300px;
+     height: 50px;
+     margin: 0 auto;
+     padding-top: 5%;
+     box-sizing: border-box;
+     font-family: 'Ubuntu', sans-serif;
+ }
 
-#under {
-    color: #ffbf30;
-    margin-top: 30px;
-    height: 40px;
-    width: 200px;
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 1.3em;
-}
-
-#under_2 {
-    color: #ffbf30;
-    margin-top: 30px;
-    height: 40px;
-    width: 200px;
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 1.3em;
-}

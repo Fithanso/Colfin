@@ -1,11 +1,11 @@
 <?php
-require "db.php";
+require "../../db.php";
 sleep(1);
 $lang = $_POST['language'];
 $name = trim($_POST['name']);
 $prepare = $db ->prepare("SELECT * FROM themes WHERE language = :language AND name = :name");
 $prepare->execute([
-    'language' => $lang,///////////////////////////////как отслеживать всё????????
+    'language' => $lang,
     'name' => $name
 ]);
 $count = $prepare->rowCount();//тут проверка на дубликат

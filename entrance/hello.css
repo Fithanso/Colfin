@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: black;
+    box-sizing: border-box;
+}
+
+#header {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.head_btn {
+    width: 80px;
+    height: 35px;
+    border: 1px solid white;
+    border-radius: 4px;
+    margin: 20px 20px 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.head_btn p {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+#welcome {
+    width: 400px;
+    height: 100px;
+    margin: 3.5% auto 0;
+    text-align: center;
+}
+
+#meet {
+    color: whitesmoke;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 1px;
+}
+
+#welcome:hover #hidden_text {/*а с meet:hover не работает!!!*/
+    -moz-transition: all 0.5s 0.3s ease-in;
+    -o-transition: all 0.5s 0.3s ease-in;
+    -webkit-transition: all 0.5s 0.3s ease-in;/*уточнить свойства transition*/
+    visibility: visible;
+}
+
+#hidden_text {
+    visibility: hidden;
+    display: block;
+    width: 400px;
+    margin-top: 8%;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+#wel_tips {
+    width: 100%;
+    margin-top: 150px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.in_wel_tips {
+    width: 300px;
+    height: 250px;
+    margin: 0 60px 0 60px;
+    padding: 1% 2% 0;
+    background-color: #232321;
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
+.in_wel_tips h3 {
+    color: white;
+    font-weight: 300;
+    font-family: 'Roboto', sans-serif;
+    padding-bottom: 10px;
+}
+
+.tip_text {
+    margin-top: 25px;
+    color: #b8b8b8;
+    font-size: 1.2em;
+    font-stretch: expanded;
+    font-family: 'Roboto', sans-serif;
+}
+
+#first {
+    border-bottom: 6px solid #0b1a64;
+}
+
+#first h3 {
+    border-left: 2px solid #0b1e86;
+    border-bottom: 2px solid #0b1e86;
+    border-bottom-left-radius: 4px;
+}
+
+#second {
+    border-bottom: 6px solid #1f6417 ;
+}
+
+#second h3 {
+    border-bottom: 2px solid #1f6317;
+}
+
+#third {
+    border-bottom: 6px solid #642a2a;
+}
+
+#third h3 {
+    border-right: 2px solid #782c2c;
+    border-bottom: 2px solid #782c2c;
+    border-bottom-right-radius: 4px;
+}

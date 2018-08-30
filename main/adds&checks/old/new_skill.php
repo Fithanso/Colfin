@@ -1,13 +1,14 @@
+<?php
+include_once "../../db.php";
+?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>SERENitY</title>
+    <title></title>
     <link rel="stylesheet" href="../styles/skills.css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lato:700i|Song+Myung" rel="stylesheet">
-    <?php
-    require "db.php";
-    ?>
+
     <script>
 
         $(document).ready(function () {
@@ -18,10 +19,10 @@
                 $("#information").css("opacity", "100");
 
                 $.ajax ({
-                    url: "check_skill.php",
+                    url: "ultimate.php",
                     type: "POST",//тип передачи
-                    data: ({name: $(".add_input").val()}),
-                    dataType: "html",//также можно "text"-тип данных, которые пришлёт сервер в ответ на запрос
+                    data: ({name: $(".add_input").val(), as: "new_skill"}),
+                    dataType: "html",
                     beforeSend: function () {
                         $("#information").text("Wait a second...");
                     },
@@ -54,8 +55,8 @@
          <input type="button" class="add_btn new_skl_elem" name="add_skill_btn" value="ADD SKILL"><!--ВАЖНО!!! с тегом button весь функционал не будет работать-->
      </form>
  </div>
-    <a id="back" href="/index.php">Go back</a><!--/нужен для пути наверх-->
-    <a id="poop" href="/index.php">Unskilled?</a>
+    <a id="back" href="../index.php">Go back</a><!--/нужен для пути наверх-->
+    <a id="poop" href="../index.php">Unskilled?</a>
 </div>
 
 </body>

@@ -1,16 +1,16 @@
 <?php
-//header("Status: 404 Not Found");
 require_once "../functions/functions.php";
-require_once "../adds&checks/db.php";
+require_once "../../db.php";
+$u_id = $_SESSION['logged_user']->id;
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>IVY</title>
+    <title>Colfin</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="skill_page.css">
     <link rel="stylesheet" href="additional.css">
-    <link rel="stylesheet" href="../styles/goals.css">
+    <link rel="stylesheet" href="../styles/goals.css"><!--для элементов notes-->
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,700&amp;subset=cyrillic-ext" rel="stylesheet">
 
 
@@ -28,7 +28,7 @@ require_once "../adds&checks/db.php";
     ");
 
     $notesQuery->execute([
-        'user' => 1,
+        'user' => $u_id,
         'theme' => $logo_s,
         'language' => $get_skill
 
@@ -42,17 +42,14 @@ require_once "../adds&checks/db.php";
 
             $("#note_submit").bind("click", function () {
                 $.ajax ({
-                    url: "../adds&checks/themes/add_theme_note.php",
+                    url: "../adds&checks/ultimate.php",
                     type: "POST",
-                    data: ({theme: "<?php echo $logo_s?>", skill: "<?php echo $get_skill?>", name: $("#note_input").val()}),
+                    data: ({theme: "<?php echo $logo_s?>", skill: "<?php echo $get_skill?>", name: $("#note_input").val(), as: "add_th_note"}),
                     dataType: "text",
                     success: function() {
-                        //alert("success");
-                    },
-                    error: function (e) {
-                        debugger;/*простой дебаггер для остановки*/
 
                     }
+                    /*можно написать ajax обработчик ошибок*/
                 });
             });
         });
@@ -64,14 +61,14 @@ require_once "../adds&checks/db.php";
 <div id="wrapper">
     <div class="header">
         <div class="text_logo_theme head">
-            <p id="logo_text_theme"><?php echo $logo ?></p>
+            <p id="logo_text_theme"><?php echo $theme_info[0]['name'] ?></p>
         </div>
         <div class="creation_date head">
             <?php
-            for($i = 0; $i < count($theme_info); $i++) {
-                $date = $theme_info[$i]['created'];
-                echo '<p>Created: '.$date.'</p>';//echo '<p>Created: '.$theme_date.'</p>';-при таком раскладе, выборке только created и без resulttoarray на странице всё пропадает почему?
-            }
+
+                $date = $theme_info[0]['created'];
+                echo '<p>Created: '.$date.'</p>';
+
             ?>
         </div>
 
@@ -80,27 +77,24 @@ require_once "../adds&checks/db.php";
     <div id="skill_body">
         <div id="aside">
             <div id="article">
-                <p class="article_text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et malesuada magna, vel tristique massa. Maecenas bibendum in nulla quis dignissim. Proin posuere, nisl et pellentesque euismod, leo tellus congue nisl, vel porta nibh erat sed est. In at porttitor urna. Curabitur fringilla vulputate nunc, et lobortis erat efficitur a. Quisque condimentum eu diam at aliquet. Proin suscipit pulvinar hendrerit. Cras eu ante malesuada, convallis lacus vel, tempor leo. Etiam eu blandit purus. Morbi porttitor porta sagittis. Donec vel mi placerat, bibendum quam sed, maximus velit.<br>
-
-                    Curabitur commodo tortor nisl, quis posuere ipsum convallis non. Nullam consectetur dolor vitae leo porttitor ultricies. Ut quis tincidunt lectus, in interdum tellus. Mauris vel commodo odio. Nam auctor tortor ac metus tincidunt, vitae vulputate nisl tempor. Donec est tellus, elementum viverra nisi vel, feugiat mattis ex. Suspendisse elementum dolor pulvinar augue consequat, vel euismod nisi dignissim. Curabitur nec ipsum arcu. Phasellus venenatis, orci et posuere rhoncus, justo sapien vehicula neque, sit amet laoreet tortor turpis vel dolor. Mauris quis vehicula ligula. Nullam scelerisque facilisis ex ac luctus. Fusce sapien eros, ultricies vitae auctor sed, aliquet vel quam.<br>
-
-                    Nullam sit amet cursus felis, et bibendum urna. Curabitur interdum libero quis mi luctus, bibendum luctus odio ultrices. Fusce venenatis est ut elit posuere maximus. Duis aliquam porttitor placerat. Aliquam porta aliquet malesuada. Cras et risus at purus iaculis tincidunt id quis erat. Aenean ut nibh volutpat massa placerat fringilla quis sed quam. Duis nisl nunc, luctus quis iaculis eget, venenatis in turpis. Pellentesque vitae sapien nisl. Nullam ac lacus eget dui fermentum suscipit.<br>
-                </p>
+                <div class="article_text">
+                    <?php echo $theme_info[0]['article']?>
+                </div>
 
                 <div id="add-del">
-                <a href="../adds&checks/change_article.php?theme=<?php echo $logo_s?>&skill=<?php echo $get_skill?>"><div id="add_change_article"><p>Add or change article</p> <img src="../img/arrow-right.svg"></div></a>
-                <a href="../adds&checks/themes/del_theme.php?theme=<?php echo $logo_s?>&skill=<?php echo $get_skill?>&as=delete"><div id="del_theme"><p>Delete theme</p></div></a>
+                <a href="../adds&checks/template.php?as=ch_art&theme=<?php echo $logo_s?>&skill=<?php echo $get_skill?>"><div id="add_change_article"><p>Add or change article</p> <img src="../img/arrow-right.svg"></div></a>
+                <a href="../adds&checks/ultimate.php?as=del_theme&theme=<?php echo $logo_s?>&skill=<?php echo $get_skill?>"><div class="del_theme"><p>Delete theme</p></div></a>
                 </div>
             </div>
 
             <div id="notes">
+                <p>Notes</p>
                 <?php if(!empty($notes)):?>
                     <ul class="items">
                     <?php foreach ($notes as $note):?>
                         <li>
                             <div class="item"><?php echo $note['name']?></div>
-                            <a href="../adds&checks/del_note.php?as=delete&note=<?php echo $note['id']?>" class="del_button">Delete</a>
+                            <a href="../adds&checks/ultimate.php?as=del_th_note&note=<?php echo $note['id']?>" class="del_button">Delete</a>
                         </li>
                     <?php endforeach; ?>
                     </ul>

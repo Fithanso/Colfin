@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>IVY</title>
+    <title>Colfin</title>
     <link rel="stylesheet" href="../styles/skills.css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lato:700i|Song+Myung" rel="stylesheet">
     <?php
-    require "db.php";
     $logo = $_GET['skill'];
     ?>
     <script>
@@ -16,14 +15,12 @@
 
             $(".add_btn").bind("click", function () {
                 $("#information").css("opacity", "100");
-                /*var info = $(".hidden").html();
-                alert(info);*/
 
-                $.ajax ({//val - возвращает значение html-атрибута value
-                    url: "check_theme.php",
+                $.ajax ({
+                    url: "ultimate.php",
                     type: "POST",//тип передачи
-                    data: ({name: $(".add_input").eq(0).val(), language: "<?php echo $logo?>"}),// называется вхождение
-                    dataType: "html",//также можно "text":тип данных, которые пришлёт сервер в ответ на запрос
+                    data: ({name: $(".add_input").eq(0).val(), language: "<?php echo $logo?>", as: "new_th_check"}),// называется вхождение
+                    dataType: "html",
                     beforeSend: function () {
                         $("#information").text("Wait a second...");
                     },
@@ -61,8 +58,8 @@
             <input type="button" class="add_btn add_theme_btn new_skl_elem" name="add_skill_btn" value="ADD THEME"><!--ВАЖНО!!! с тегом button весь функционал не будет работать-->
         </form>
     </div>
-    <a id="back" href="http://trainer/main/templates/template.php?skill=php">Go back</a><!--как сделать просто на уровень вверх-->
-    <a id="poop" href="http://trainer/main/templates/template.php?skill=php">Cancel</a>
+    <a id="back" href="../templates/template.php?skill=<?php echo $logo?>">Go back</a>
+    <a id="poop" href="../templates/template.php?skill=<?php echo $logo?>">Cancel</a>
     <p class="hidden"><?php echo $logo?></p>
 </div>
 

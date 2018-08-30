@@ -1,3 +1,6 @@
+<?php
+require_once "../functions/functions.php";
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,12 +9,11 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lato:700i|Song+Myung" rel="stylesheet">
     <?php
-    require "db.php";
-    require_once "../functions/functions.php";
+
     $theme = $_GET['theme'];
     $skill = $_GET['skill'];
 
-    $theme_query = getOneTheme($theme, $skill);
+    $theme_info = getOneTheme($theme, $skill);
     ?>
     <script>
 
@@ -20,12 +22,12 @@
             $(".add_btn").bind("click", function () {
 
                 $.ajax ({
-                    url: "check_change_article.php",
-                    type: "POST",//тип передачи
-                    data: ({article: $(".add_input").val(), theme: '<?php echo $theme?>', skill: '<?php echo $skill?>'}),//обязательно нужны ковычки!!!!
-                    dataType: "html",//также можно "text"-тип данных, которые пришлёт сервер в ответ на запрос
+                    url: "ultimate.php",
+                    type: "POST",
+                    data: ({article: $(".add_input").val(), theme: '<?php echo $theme?>', skill: '<?php echo $skill?>', as: "ch_art"}),
+                    dataType: "html",
                     success: function(data) {
-                       alert("success");
+
                     }
                 });
             });
@@ -39,7 +41,7 @@
     <div id="the_great_attractor">
 
         <form method="post" name="skill_form">
-            <textarea class="add_input new_skl_elem" name="theme_text" placeholder="Just describe something"><?php $theme_query['article']?></textarea><br>
+            <textarea class="add_input new_skl_elem" name="theme_text" placeholder="Just describe something">TEST<?php echo $theme_info[0]['article']?></textarea><br>
             <input type="button" class="add_btn new_skl_elem" name="add_text_btn" value="CHANGE">
         </form>
 

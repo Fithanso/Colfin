@@ -1,18 +1,15 @@
 <?php
-require "db.php";
+require_once "../../db.php";
 
-if(isset($_GET['as'], $_GET['skill'])) {
-    $as = $_GET['as'];
+if(isset($_GET['skill'])) {
+
     $skill = $_GET['skill'];
 
-    switch ($as) {
-        case "delete":
             $deleteQuery = $db->prepare("DELETE from skills WHERE name = :name");
             $deleteQuery->execute([
                 'name' => $skill
             ]);
-            break;
-    }
+
 }
 
-header('Location: /index.php');
+header('Location: ../index.php');

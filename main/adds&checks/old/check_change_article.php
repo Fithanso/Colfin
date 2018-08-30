@@ -1,5 +1,5 @@
 <?php
-require "db.php";
+require "../../db.php";
 $theme = $_POST['theme'];
 $skill = $_POST['skill'];
 $article = $_POST['article'];
@@ -12,5 +12,5 @@ $doneQuery->execute([
     'language' => $skill
 ]);
 
-header('Location: /index.php');
+header('Location: ../index.php');
 

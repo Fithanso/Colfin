@@ -1,19 +1,14 @@
 <?php
-require_once "connect.php";
+include_once "D:/ospanel/domains/testing/db.php";
 
 function getBlocks () {
     global $mysqli;
     connectDB();
-    //if($id)//если существует id
-        //$where = "WHERE `id` = ".$id;
-    $result_s = $mysqli->query("SELECT * FROM `skills` ORDER BY `id` DESC"); //если нужен лимит - вставить LIMIT $limit после DESC
+    $user_id = $_SESSION['logged_user']->id;
+    $result_s = $mysqli->query("SELECT * FROM `skills` WHERE user = '$user_id'  ORDER BY `id` DESC"); //если нужен лимит - вставить LIMIT $limit после DESC
     closeDB();
 
-    //if(!$id)//если не существует id
-        return resultToArray($result_s);/*если непонятно зачем все проверки - это как сайт Дударя
-    /*else
-        return $result->fetch_assoc();*/
-
+        return resultToArray($result_s);
 }
 
 function resultToArray ($result) {

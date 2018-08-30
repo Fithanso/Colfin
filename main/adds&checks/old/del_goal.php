@@ -1,8 +1,7 @@
 <?php
-require "db.php";
+require "../../db.php";
 
-if(isset($_GET['as'], $_GET['item'])) {
-    $as = $_GET['as'];
+if(isset($_GET['item'])) {
     $item = $_GET['item'];
 
     switch ($as) {
@@ -19,4 +18,4 @@ if(isset($_GET['as'], $_GET['item'])) {
 
 }
 
-header('Location: /index.php');
+header('Location: ../index.php');

@@ -1,6 +1,6 @@
 <?php
 require_once "../functions/functions.php";
-require_once "../adds&checks/db.php";
+require_once "../../db.php";
 $skill_name = $_GET['skill'];
 $prepare_skill = $db->prepare("
 SELECT * FROM themes
@@ -16,9 +16,11 @@ $count = $prepare_skill->rowCount();
 <!DOCTYPE html>
 <html>
 <head>
-    <title>IVY</title>
+    <title>Colfin,<?php echo strtoupper($skill_name)?></title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="skill_page.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,700&amp;subset=cyrillic-ext" rel="stylesheet">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <?php
     $skill = getSkill($skill_name);
@@ -43,12 +45,11 @@ $count = $prepare_skill->rowCount();
             ?>
         </div>
 
-        <a href="../adds&checks/del_skill.php?as=delete&skill=<?php echo $get_skill?>"><!--нужно исправить блок удаления, из-за родительской ссылки-->
+
         <div class="delete_skill head">
-            <div id="rotate_1"></div>
-            <div id="rotate_2"></div>
+            <a href="../adds&checks/ultimate.php?as=del_skill&skill=<?php echo $get_skill?>"><div class="del_theme"><p>Delete skill</p></div></a>
         </div>
-        </a>
+
 
     </div>
 
@@ -70,8 +71,8 @@ $count = $prepare_skill->rowCount();
                 echo 'God';
             ?></h2>
         <h3>Themes<br> you know:<br><?php echo $count?></h3>
-        <h5>Check your themes<br> on php.su</h5>
-        <a href="../adds&checks/new_theme.php?skill=<?php echo $get_skill?>"><h3>New theme</h3> </a>
+        <!--<h5>Check your themes on <p class="link">php.su</p> </h5>-->
+        <a href="../adds&checks/template.php?as=n_th&skill=<?php echo $get_skill?>"><h3>New theme</h3> </a>
     </div>
     <div id="skill_themes">
         <?php for ($i=0; $i < count($themes); $i++) {
