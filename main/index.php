@@ -95,6 +95,8 @@ $items = $itemsQuery->rowCount() ? $itemsQuery : [];//если rowcount выда
                 <span class="item<?php echo $item['done'] ? ' done' : ''?>"><?php echo $item['name'] ?></span><!--если item['done'] = true, то тогда пишем "пробел" done, если false, то пусто-->
                 <?php if(!$item['done']):?>
                     <a href="adds&checks/ultimate.php?as=mark_goal&item=<?php echo $item['id']?>" class="done_button">Mark as done</a><!--Если задача не отмечена как выполненная в БД, то добавляем кнопку-->
+                <?php elseif($item['done']):?>
+                    <a href="adds&checks/ultimate.php?as=mark_goal_und&item=<?php echo $item['id']?>" class="done_button">Mark as undone</a>
                 <?php endif; ?>
                 <a href="adds&checks/ultimate.php?as=del_goal&item=<?php echo $item['id']?>" class="del_button">Delete</a>
             </li>

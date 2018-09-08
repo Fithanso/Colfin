@@ -2,7 +2,7 @@
 include_once "../../db.php";
 
 if($_GET['as'] == "n_sk") :
-?>
+    ?>
     <!DOCTYPE html>
     <html>
     <head>
@@ -10,6 +10,7 @@ if($_GET['as'] == "n_sk") :
         <link rel="stylesheet" href="../styles/skills.css">
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Lato:700i|Song+Myung" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
 
         <script>
 
@@ -20,26 +21,30 @@ if($_GET['as'] == "n_sk") :
 
                     $("#information").css("opacity", "100");
 
-                    $.ajax ({
-                        url: "ultimate.php",
-                        type: "POST",//тип передачи
-                        data: ({name: $(".add_input").val(), as: "new_skill"}),
-                        dataType: "html",
-                        beforeSend: function () {
-                            $("#information").text("Wait a second...");
-                        },
-                        success: function(data) {
-                            if(data == "already") {
-                                $("#information").text("You already know it");
-                            } else if(data == "missing") {
-                                $("#information").text("Enter skill");
-                            } else if(data == "added") {
-                                $("#information").text("Attaboy! New skill added");
-                                $('#back').show(200);
-                                $('#poop').hide();
+                    var spec_v = $(".skl_select").val();
+
+                    if( spec_v != "--not selected--") {
+                        $.ajax({
+                            url: "ultimate.php",
+                            type: "POST",//тип передачи
+                            data: ({name: $(".skl_select").val(), as: "new_skill"}),
+                            dataType: "html",
+                            beforeSend: function () {
+                                $("#information").text("Wait a second...");
+                            },
+                            success: function (data) {
+                                if (data == "already") {
+                                    $("#information").text("You already know it");
+                                } else if (data == "missing") {
+                                    $("#information").text("Enter skill");
+                                } else if (data == "added") {
+                                    $("#information").text("Attaboy! New skill added");
+                                    $('#back').show(200);
+                                    $('#poop').hide();
+                                }
                             }
-                        }
-                    });
+                        });
+                    }
                 });
             });
         </script>
@@ -47,18 +52,31 @@ if($_GET['as'] == "n_sk") :
 
 
     </head>
-    <body>
+    <body><!--удалённое: .add_input, .new_skl_elem, #information, .add_btn-->
 
     <div id="wrapper_new">
-        <div id="the_great_attractor">
+
             <form method="post" name="skill_form">
-                <input type="text" class="add_input new_skl_elem" name="skill_name" placeholder=" New skill?"><br>
+                <!--<input type="text" class="add_input new_skl_elem" name="skill_name" placeholder=" New skill?"><br>
                 <div id="information" class="new_skl_elem"></div>
                 <input type="button" class="add_btn new_skl_elem" name="add_skill_btn" value="ADD SKILL"><!--ВАЖНО!!! с тегом button весь функционал не будет работать-->
+                <select class="skl_select">
+                    <option disabled>Select here</option>
+                    <option selected>--not selected--</option>
+                    <option>PHP</option>
+                    <option>Java</option>
+                    <option>Python</option>
+                    <option>HTML</option>
+                    <option>CSS</option>
+                    <option>JAVASCRIPT</option>
+                </select>
+                <br>
+                <div id="information" class="new_skl_elem"></div>
+                <input type="button" class="add_btn new_skl_elem" name="add_skill_btn" value="ADD SKILL">
             </form>
-        </div>
-        <a id="back" href="../index.php">Go back</a><!--/нужен для пути наверх-->
-        <a id="poop" href="../index.php">Unskilled?</a>
+
+        <a id="back" class="back_href" href="../index.php">Go back</a>
+        <a id="poop" class="back_href" href="../index.php">Unskilled?</a>
     </div>
 
     </body>

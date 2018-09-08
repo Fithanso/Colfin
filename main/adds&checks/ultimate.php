@@ -41,7 +41,24 @@ if($_GET['as'] == "add_goal") {
         ]);
 
     }
+    header('Location: ../index.php');
+    /*-------------MARK AS UNDONE---------------*/
+}else if($_GET['as'] == "mark_goal_und") {
+    if(isset($_GET['item'])) {
+        $item = $_GET['item'];
 
+        $doneQuery = $db->prepare("
+        UPDATE goals
+        SET done = 0
+        WHERE id = :item
+        AND user = :user
+        ");
+
+        $doneQuery->execute([
+            'item' => $item,
+            'user' => $u_id
+        ]);
+    }
     header('Location: ../index.php');
     /*-------------DELETE GOAL---------------*/
 } else if($_GET['as'] == "del_goal") {
@@ -59,13 +76,12 @@ if($_GET['as'] == "add_goal") {
     header('Location: ../index.php');
     /*------------ADD SKILL----------------*/
 } else if ($_POST['as'] == "new_skill") {
-    sleep(1);
 
     $name = trim($_POST['name']);
-    $prepare = $db ->prepare("SELECT * FROM skills WHERE name = :name");
+    $prepare = $db ->prepare("SELECT * FROM skills WHERE name = :name AND user = :user");
     $prepare->execute([
-
-        'name' => $name
+        'name' => $name,
+        'user' => $u_id
     ]);
     $count = $prepare->rowCount();//тут проверка на дубликат
 
@@ -90,9 +106,15 @@ if($_GET['as'] == "add_goal") {
 
         $skill = $_GET['skill'];
 
-        $deleteQuery = $db->prepare("DELETE from skills WHERE name = :name");
+        $deleteQuery = $db->prepare("DELETE from skills WHERE name = :name AND user = :user");
+        $deleteThemeQuery = $db->prepare("DELETE from themes WHERE language = :language AND user = :user");
         $deleteQuery->execute([
-            'name' => $skill
+            'name' => $skill,
+            'user' => $u_id
+        ]);
+        $deleteThemeQuery->execute ([
+            'language' => $skill,
+            'user' => $u_id
         ]);
 
     }
@@ -100,7 +122,7 @@ if($_GET['as'] == "add_goal") {
     header('Location: ../index.php');
 /*------------------NEW THEME CHECK------------------------*/
 } else  if($_POST['as'] == "new_th_check") {/////////////////////////////////////////////////////////////////////////////проверить юзеров
-    sleep(1);
+
     $lang = $_POST['language'];
     $name = trim($_POST['name']);
     $prepare = $db ->prepare("SELECT * FROM themes WHERE language = :language AND name = :name");
@@ -142,7 +164,7 @@ if($_GET['as'] == "add_goal") {
 
     }
 
-    header("Location: ../index.php");
+    header("Location: ../templates/template.php?skill={$_GET['skill']}");
     /*------------ADD & CHANGE ARTICLE--------------*/
 }else if($_POST['as'] == "ch_art") {
     $theme = $_POST['theme'];
@@ -178,6 +200,7 @@ if($_GET['as'] == "add_goal") {
             ]);
         }
     }
+    /*-----------DELETE THEME NOTE------------------*/
 } else if($_GET['as'] == "del_th_note") {
     if(isset($_GET['note'])) {
 
@@ -191,5 +214,5 @@ if($_GET['as'] == "add_goal") {
 
     }
 
-    header('Location: ../index.php');
+    header("Location: ../templates/theme_template.php?theme={$_GET['theme']}&skill={$_GET['skill']}");
 }

@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -14,20 +15,14 @@ body {
 
 #wrapper_new {
     width: 100%;
-    height: 729px;
-    /*float: right;*/
 }
 
-#wrapper_new #poop {
+#wrapper_new .back_href {
+    display: block;
     font-size: 1.8em;
     color: white;
     font-family: 'Ubuntu', sans-serif;
-}
-
-#wrapper_new #back {
-    font-size: 1.8em;
-    color: white;
-    font-family: 'Ubuntu', sans-serif;
+    margin-top: 15%;
 }
 
 #the_great_attractor {
@@ -39,8 +34,8 @@ body {
     background-color: black;
 }
 
-#the_great_attractor .new_skl_elem {
-    margin-top: 10%;
+.new_skl_elem {
+    margin-top: 3%;
     background-color: black;
 }
 
@@ -52,6 +47,7 @@ body {
     border-bottom-right-radius: 15px;
     font-weight: 700;
     font-size: 1.2em;
+    background-color: black;
     color: white;
 }
 
@@ -62,6 +58,7 @@ body {
 .add_input {
     height: 50px;
     width: 300px;
+    padding-left: 10px;
     border: 2px solid white;
     border-radius: 3px;
     font-size: 1.2em;
@@ -78,6 +75,7 @@ input::-webkit-input-placeholder {
     opacity: 0;
     width: 400px;
     height: 30px;
+    margin: 0 auto;
     color: white;
     font-size: 1.3em;
     font-family: 'Ubuntu', sans-serif;
@@ -93,4 +91,21 @@ input::-webkit-input-placeholder {
 .add_theme_btn {
     width: 150px;
 }
+
+#wrapper_new select {
+    width: 30%;
+    height: 10vh;
+    margin: 25vh auto 5vh;
+    border: 2px solid grey;
+    border-radius: 3px;
+    background-color: #4f5150;
+    font-size: 1.8em;
+    font-family: 'PT Sans', sans-serif;
+    letter-spacing: 3px;
+    padding-left: 30px;
+}
+
+
+
+
 

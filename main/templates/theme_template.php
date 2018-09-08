@@ -94,7 +94,7 @@ $u_id = $_SESSION['logged_user']->id;
                     <?php foreach ($notes as $note):?>
                         <li>
                             <div class="item"><?php echo $note['name']?></div>
-                            <a href="../adds&checks/ultimate.php?as=del_th_note&note=<?php echo $note['id']?>" class="del_button">Delete</a>
+                            <a href="../adds&checks/ultimate.php?as=del_th_note&note=<?php echo $note['id']?>&skill=<?php echo $get_skill?>&theme=<?php echo $logo_s?>" class="del_button">Delete</a>
                         </li>
                     <?php endforeach; ?>
                     </ul>

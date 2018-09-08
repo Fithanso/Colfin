@@ -124,8 +124,13 @@ a {
 }
 
 .skill_block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 216px;
-    height: 120px;
+    height: 100px;
+    margin-left: 90px;
+    margin-top: 30px;
     border-left: 3px solid white;
     border-top: 3px solid white;
     border-top-left-radius: 5px;
@@ -133,8 +138,6 @@ a {
     text-align: center;
     box-sizing: border-box;
     float: left;
-    margin-left: 90px;
-    margin-top: 30px;
 }
 
 .skill_block:hover {
@@ -142,12 +145,11 @@ a {
 }
 
 .skill_block h2 {
+    margin-top: 20px;
     font-weight: normal;
     font-size: 2em;
     font-family: 'Prompt', sans-serif;
     color: whitesmoke;
-    margin-top: 18%;
-
 }
 
 /*Стили для задач*/
